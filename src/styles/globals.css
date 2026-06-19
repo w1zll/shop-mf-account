@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 @import "@w1zll/shop-ui/styles.css";
 
 @source "../../node_modules/@w1zll/shop-ui/dist";
@@ -20,4 +20,24 @@ body {
   min-width: 320px;
   background: var(--shop-background);
   color: var(--shop-foreground);
+}
+
+.account-sm-up {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .account-sm-up {
+    display: block;
+  }
+}
+
+.account-sm-inline {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .account-sm-inline {
+    display: inline-flex;
+  }
 }

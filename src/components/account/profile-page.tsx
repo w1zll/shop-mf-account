@@ -17,7 +17,7 @@ const profileSchema = z.object({
 type ProfileFormValues = z.infer<typeof profileSchema>;
 
 function ProfilePageView() {
-  const { data, isError, isLoading } = useMeQuery();
+  const { data, isError, isFetching, isLoading } = useMeQuery();
   const updateMutation = useUpdateProfileMutation();
   const [message, setMessage] = useState<string | null>(null);
   const {
@@ -60,7 +60,7 @@ function ProfilePageView() {
     );
   }
 
-  if (isLoading) {
+  if (isLoading || (isFetching && !data?.user)) {
     return <LoadingState label="Загружаем профиль" />;
   }
 
