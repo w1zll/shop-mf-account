@@ -30,8 +30,8 @@ function AccountMenuView() {
   if (isError || !data?.user) {
     return (
       <div className="account-sm-up">
-        <Button asChild aria-label="Войти в аккаунт" className="size-10 p-0" variant="ghost">
-          <a href="/login">
+        <Button asChild className="size-10 cursor-pointer p-0" variant="ghost">
+          <a href="/login" aria-label="Войти в аккаунт">
             <Heart className="size-4" aria-hidden="true" />
           </a>
         </Button>
@@ -44,7 +44,7 @@ function AccountMenuView() {
       <Button
         aria-expanded={isOpen}
         aria-label="Меню аккаунта"
-        className="size-10 p-0"
+        className="size-10 cursor-pointer p-0"
         onClick={() => {
           setIsOpen((current) => !current);
         }}
@@ -72,6 +72,7 @@ function AccountMenuView() {
               <a href="/account/favorites">Избранное</a>
             </Button>
             <Button
+              className={logoutMutation.isPending ? undefined : "cursor-pointer"}
               disabled={logoutMutation.isPending}
               onClick={() => {
                 logoutMutation.mutate(undefined, {
