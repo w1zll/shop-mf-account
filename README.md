@@ -49,11 +49,20 @@ http://localhost:3003/mf-manifest.json
 
 Браузерные запросы идут same-origin через `/api/v1`.
 Standalone dev-server проксирует `/api/*` на `API_ORIGIN`.
+Standalone deploy на Vercel проксирует `/api/v1/*` через Vercel Function `api/proxy.js`.
 
 По умолчанию:
 
 ```text
 API_ORIGIN=http://localhost:4000
+API_REQUEST_ORIGIN=http://localhost:3000
+```
+
+В production standalone-проверке:
+
+```text
+API_ORIGIN=https://<render-api-host>
+API_REQUEST_ORIGIN=https://<account-remote-host>
 ```
 
 Для unsafe-запросов (`POST`, `PATCH`, `DELETE`) remote сначала получает CSRF через:
