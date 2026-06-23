@@ -100,6 +100,14 @@ function ProfilePageView() {
       <aside className="h-fit space-y-3 rounded-lg border border-[var(--shop-border)] p-4">
         <h2 className="font-semibold">Бонусы</h2>
         <Price className="text-xl font-semibold" valueCents={data.user.bonusBalanceCents} />
+        <div className="grid gap-2 pt-2">
+          <Button asChild variant="outline">
+            <a href="/account/orders">История заказов</a>
+          </Button>
+          <Button asChild variant="ghost">
+            <a href="/account/favorites">Избранное</a>
+          </Button>
+        </div>
       </aside>
     </Container>
   );
